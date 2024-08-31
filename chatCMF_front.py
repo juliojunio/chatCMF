@@ -19,6 +19,7 @@ def generar_modelo(ruta_archivos_normativos):
     import textwrap
     import json
     from dotenv import load_dotenv
+    import pickle
 
 
     ruta=os.getcwd()
@@ -32,12 +33,16 @@ def generar_modelo(ruta_archivos_normativos):
 
 
     #Leer los PDFs
-    pdf = SimpleDirectoryReader(ruta_archivos_normativos).load_data()
+    #pdf = SimpleDirectoryReader(ruta_archivos_normativos).load_data()
+
 
     #Definir e instanciar el modelo
     modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview'))
     service_context = ServiceContext.from_defaults(llm_predictor=modelo)
-    index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
+    #index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
+
+    with open('index.pkl', 'rb') as f:
+        index = pickle.load(f)
 
 
 
