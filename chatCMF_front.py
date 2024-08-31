@@ -13,8 +13,8 @@ nltk.data.path.append('./nltk_data')
 @st.cache_resource
 def generar_modelo(ruta_archivos_normativos):
 
-    from llama_index.legacy import SimpleDirectoryReader, ServiceContext, GPTVectorStoreIndex
-    from llama_index.legacy import LLMPredictor
+    #from llama_index.legacy import SimpleDirectoryReader, ServiceContext, GPTVectorStoreIndex
+    #from llama_index.legacy import LLMPredictor
     from langchain_openai import ChatOpenAI
     import textwrap
     import json
