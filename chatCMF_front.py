@@ -11,11 +11,11 @@ nltk.data.path.append('./nltk_data')
 
 #guardar en cache para solo entrenar el modelo una vez
 @st.cache_resource
-def generar_modelo(ruta_archivos_normativos):
+def generar_modelo():
 
     #from llama_index.legacy import SimpleDirectoryReader, ServiceContext, GPTVectorStoreIndex
     #from llama_index.legacy import LLMPredictor
-    from langchain_openai import ChatOpenAI
+    #from langchain_openai import ChatOpenAI
     import textwrap
     import json
     from dotenv import load_dotenv
@@ -201,25 +201,12 @@ st.markdown(background_css, unsafe_allow_html=True)
 ###########################################################################################################################
 
 
-# Pedir al usuario que ingrese manualmente la ruta de la carpeta
-carpeta = st.text_input("Ingresa la ruta de la carpeta donde están los archivos normativos (tiempo estimado: 5mins):")
 
-# Verifica si la carpeta existe
-if carpeta:
-    if os.path.isdir(carpeta):
-        st.success(f"Carpeta seleccionada: {carpeta}")
-
-        start_time = time.time()
-        interaccion_norm_v2 = generar_modelo(carpeta)
-        end_time = time.time()
-        response_time = end_time - start_time
-        st.markdown(f"<small>Tiempo entrenamiento modelo: {response_time:.2f} segundos</small>", unsafe_allow_html=True)
-    else:
-        st.error("La ruta ingresada no es válida. Por favor, ingresa una ruta válida.")
-else:
-    st.info("Por favor, ingresa la ruta de la carpeta para continuar.")
-
-
+start_time = time.time()
+interaccion_norm_v2 = generar_modelo()
+end_time = time.time()
+response_time = end_time - start_time
+st.markdown(f"<small>Tiempo entrenamiento modelo: {response_time:.2f} segundos</small>", unsafe_allow_html=True)
 
 st.title("ChatCMF")
 
