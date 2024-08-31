@@ -37,8 +37,8 @@ def generar_modelo(ruta_archivos_normativos):
 
 
     #Definir e instanciar el modelo
-    modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview'))
-    service_context = ServiceContext.from_defaults(llm_predictor=modelo)
+    #modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview'))
+    #service_context = ServiceContext.from_defaults(llm_predictor=modelo)
     #index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
 
     with open('index.pkl', 'rb') as f:
