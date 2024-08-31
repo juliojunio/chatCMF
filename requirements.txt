@@ -1,7 +1,4 @@
-nbconvert>=7.8.0
-llama-index>=0.8.36
-langchain>=0.0.315
-langchain-community>=0.1.5
-langchain-openai>=0.1.0
-textwrap>=3.11.4
 streamlit>=1.25.0
+langchain>=0.0.315
+llama-index>=0.8.36
+
