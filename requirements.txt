@@ -1,4 +1,5 @@
 streamlit>=1.25.0
-langchain>=0.0.315
+langchain-openai>=0.1.0
 llama-index>=0.8.36
-
+nbconvert>=7.8.0
+textwrap>=3.11.4
