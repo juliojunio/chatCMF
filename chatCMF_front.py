@@ -30,8 +30,9 @@ def generar_modelo(ruta_archivos_normativos):
     #load_dotenv()
     #api_key = os.getenv('OPENAI_API_KEY')
     #os.environ["OPENAI_API_KEY"] = api_key
-    api_key = st.secrets["OPENAI_API_KEY"]
     st.write("Secrets:", st.secrets)
+    api_key = st.secrets["OPENAI_API_KEY"]
+    
 
 
 
