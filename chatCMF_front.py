@@ -2,7 +2,10 @@ import time
 import streamlit as st
 import os
 import base64
+import nltk
 
+# Agregar stopwords
+nltk.data.path.append('./nltk_data')
 
 
 
