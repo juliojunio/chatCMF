@@ -162,7 +162,7 @@ def get_base64_of_image(image_path):
         return base64.b64encode(image_file.read()).decode()
 
 # Ruta a tu imagen de fondo local
-image_path = 'fondo_opaco.png'  # Cambia esto a la ubicación de tu imagen
+image_path = os.path.join(os.path.dirname(__file__), 'fondo_opaco.png')  # Cambia esto a la ubicación de tu imagen
 
 # Convertir imagen a base64
 image_base64 = get_base64_of_image(image_path)
