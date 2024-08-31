@@ -26,10 +26,12 @@ def generar_modelo(ruta_archivos_normativos):
 
     ############################               ENTRENAMIENTO DEL MODELO     ###############################################
 
-    #Cámbiala por tu API de OpenAI
-    load_dotenv()
-    api_key = os.getenv('OPENAI_API_KEY')
-    os.environ["OPENAI_API_KEY"] = api_key
+    #agregar mi key de openai desde la variable de entorno
+    #load_dotenv()
+    #api_key = os.getenv('OPENAI_API_KEY')
+    #os.environ["OPENAI_API_KEY"] = api_key
+    api_key = st.secrets["OPENAI_API_KEY"]
+
 
 
     #Leer los PDFs
