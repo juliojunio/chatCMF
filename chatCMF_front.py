@@ -45,6 +45,10 @@ def generar_modelo():
     #service_context = ServiceContext.from_defaults(llm_predictor=modelo)
     #index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
 
+    nltk_data_dir = os.path.join(os.getcwd(), 'nltk_data')
+    os.makedirs(nltk_data_dir, exist_ok=True)
+    os.environ['NLTK_DATA'] = nltk_data_dir
+    
     with open('index.pkl', 'rb') as f:
         index = pickle.load(f)
 
