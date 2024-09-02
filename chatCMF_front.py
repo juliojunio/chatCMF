@@ -22,8 +22,8 @@ def generar_modelo():
     from langchain_openai import ChatOpenAI
     import textwrap
     import json
-    from dotenv import load_dotenv
-    import pickle
+    #from dotenv import load_dotenv
+    #import pickle
 
 
     ruta=os.getcwd()
@@ -194,7 +194,7 @@ background_css = f"""
 # Inyectar el código CSS
 st.markdown(background_css, unsafe_allow_html=True)
 
-###########################################################################################################################
+#######################################################################
 
 
 
