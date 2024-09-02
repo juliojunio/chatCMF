@@ -34,14 +34,7 @@ def generar_modelo():
     api_key = st.secrets["OPENAI_API_KEY"]
 
     #api_key = os.getenv("OPENAI_API_KEY")
-    
-    # Muestra la clave API (solo para prueba)
-    st.write("Your OpenAI API Key is:", api_key)
-
-    print(os.environ)
-    
-
-
+   
 
     #Leer los PDFs
     #pdf = SimpleDirectoryReader(ruta_archivos_normativos).load_data()
