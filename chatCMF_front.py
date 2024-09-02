@@ -13,9 +13,13 @@ nltk.data.path.append('./nltk_data')
 @st.cache_resource
 def generar_modelo():
 
-    #from llama_index.legacy import SimpleDirectoryReader, ServiceContext, GPTVectorStoreIndex
-    #from llama_index.legacy import LLMPredictor
-    #from langchain_openai import ChatOpenAI
+    nltk_data_dir = os.path.join(os.getcwd(), 'nltk_data')
+    os.makedirs(nltk_data_dir, exist_ok=True)
+    os.environ['NLTK_DATA'] = nltk_data_dir
+
+    from llama_index.legacy import SimpleDirectoryReader, ServiceContext, GPTVectorStoreIndex
+    from llama_index.legacy import LLMPredictor
+    from langchain_openai import ChatOpenAI
     import textwrap
     import json
     from dotenv import load_dotenv
@@ -23,35 +27,28 @@ def generar_modelo():
 
 
     ruta=os.getcwd()
+    ruta_archivos = os.path.join(os.getcwd(), 'liquidez')
 
     ############################               ENTRENAMIENTO DEL MODELO     ###############################################
 
     #agregar mi key de openai desde la variable de entorno
-    #load_dotenv()
-    #api_key = os.getenv('OPENAI_API_KEY')
-    #os.environ["OPENAI_API_KEY"] = api_key
-    #st.write("Secrets:", st.secrets)
     api_key = st.secrets["OPENAI_API_KEY"]
-
-    #api_key = os.getenv("OPENAI_API_KEY")
    
 
     #Leer los PDFs
-    #pdf = SimpleDirectoryReader(ruta_archivos_normativos).load_data()
+    pdf = SimpleDirectoryReader(ruta_archivos).load_data()
 
 
     #Definir e instanciar el modelo
-    #modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview'))
-    #service_context = ServiceContext.from_defaults(llm_predictor=modelo)
-    #index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
+    modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview'))
+    service_context = ServiceContext.from_defaults(llm_predictor=modelo)
+    index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
 
-    nltk_data_dir = os.path.join(os.getcwd(), 'nltk_data')
-    os.makedirs(nltk_data_dir, exist_ok=True)
-    os.environ['NLTK_DATA'] = nltk_data_dir
     
+    '''
     with open('index.pkl', 'rb') as f:
         index = pickle.load(f)
-
+    '''
 
 
     ##########################         GENERACÓN DE ARCHIVOS CON HISTORIAL DE CONVERSACIÓN    ########################
