@@ -12,7 +12,7 @@ nltk.data.path.append('./nltk_data')
 #guardar en cache para solo entrenar el modelo una vez
 @st.cache_resource
 def generar_modelo():
-
+    #generar carpeta de cache para descargas
     nltk_data_dir = os.path.join(os.getcwd(), 'nltk_data')
     os.makedirs(nltk_data_dir, exist_ok=True)
     os.environ['NLTK_DATA'] = nltk_data_dir
