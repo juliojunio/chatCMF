@@ -23,7 +23,7 @@ def generar_modelo():
     import textwrap
     import json
     #from dotenv import load_dotenv
-    #import pickle
+    import pickle
 
 
     ruta=os.getcwd()
