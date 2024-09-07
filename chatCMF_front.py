@@ -36,20 +36,18 @@ def generar_modelo():
    
 
     #Leer los PDFs
-    pdf = SimpleDirectoryReader(ruta_archivos).load_data()
+    #pdf = SimpleDirectoryReader(ruta_archivos).load_data()
 
 
     #Definir e instanciar el modelo
-    modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview'))
-    service_context = ServiceContext.from_defaults(llm_predictor=modelo)
-    index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
+    #modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview'))
+    #service_context = ServiceContext.from_defaults(llm_predictor=modelo)
+    #index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
 
     
-    '''
     with open('index.pkl', 'rb') as f:
         index = pickle.load(f)
-    '''
-
+    
 
     ##########################         GENERACÓN DE ARCHIVOS CON HISTORIAL DE CONVERSACIÓN    ########################
 
