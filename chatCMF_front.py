@@ -44,6 +44,14 @@ def generar_modelo():
     #service_context = ServiceContext.from_defaults(llm_predictor=modelo)
     #index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
 
+    filepath = "index.pkl"
+    if not os.path.exists(filepath):
+        print("El archivo no existe en la ruta especificada")
+    elif not os.access(filepath, os.R_OK):
+        print("No se tienen permisos de lectura para el archivo")
+    else:
+        print("El archivo existe y se puede leer")
+
     
     with open('index.pkl', 'rb') as f:
         index = pickle.load(f)
