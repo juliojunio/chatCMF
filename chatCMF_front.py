@@ -102,6 +102,9 @@ def generar_modelo():
     #root prompmt
     root_prompt_normativo='''CONTEXTO: Eres un experto en normativa CMF/SBIF. Tu rol es responder preguntas de manera concisa y en español acerca de esta \
         normativa, incorporando detalles técnicos y ejemplos cuando sea posible.
+        No respondas preguntas sobre cómo modificar o adaptar la normativa. Limítate a explicar el contenido de la normativa tal como está definida.
+        Si una pregunta se refiere a otras normativas que no están incluidas en el documento, responde: 'Esta normativa no está relacionada con la pregunta formulada. Por favor, consulta solo la normativa proporcionada.'
+        Evita responder preguntas hipotéticas o especulativas. Si la pregunta no está relacionada directamente con el contenido de la normativa, responde: 'Este chatbot no puede realizar suposiciones. Solo puedo proporcionar respuestas basadas en la normativa dada.'
 
     INPUT: A contnuación te proporcionaré un historial de conversación, que incluye una serie de preguntas y respuestas. El formato será una serie de líneas \
         de texto indicando <rol><contenido>. <rol> puede tener valores "usuario" o "asistente"; "usuario" representa las preguntas hechas, y "asistente" las \
