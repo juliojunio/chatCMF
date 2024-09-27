@@ -33,6 +33,7 @@ def generar_modelo():
 
     #agregar mi key de openai desde la variable de entorno
     api_key = st.secrets["OPENAI_API_KEY"]
+    print(api_key)
    
 
     #Leer los PDFs
