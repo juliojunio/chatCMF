@@ -24,6 +24,7 @@ def generar_modelo():
     import json
     #from dotenv import load_dotenv
     import pickle
+    import openai
 
 
     ruta=os.getcwd()
@@ -32,18 +33,19 @@ def generar_modelo():
     ############################               ENTRENAMIENTO DEL MODELO     ###############################################
 
     #agregar mi key de openai desde la variable de entorno
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
     api_key = st.secrets["OPENAI_API_KEY"]
-    print(api_key)
+    #print(api_key)
    
 
     #Leer los PDFs
-    #pdf = SimpleDirectoryReader(ruta_archivos).load_data()
+    pdf = SimpleDirectoryReader(ruta_archivos).load_data()
 
 
     #Definir e instanciar el modelo
-    #modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview'))
-    #service_context = ServiceContext.from_defaults(llm_predictor=modelo)
-    #index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
+    modelo = LLMPredictor(llm=ChatOpenAI(temperature=0, model_name='gpt-4-turbo-preview',openai_api_key=api_key))
+    service_context = ServiceContext.from_defaults(llm_predictor=modelo)
+    index = GPTVectorStoreIndex.from_documents(pdf, service_context = service_context)
 
     filepath = "index.pkl"
     if not os.path.exists(filepath):
@@ -53,10 +55,10 @@ def generar_modelo():
     else:
         print("El archivo existe y se puede leer")
 
-    
+    '''
     with open('index.pkl', 'rb') as f:
         index = pickle.load(f)
-    
+    '''
 
     ##########################         GENERACÓN DE ARCHIVOS CON HISTORIAL DE CONVERSACIÓN    ########################
 
