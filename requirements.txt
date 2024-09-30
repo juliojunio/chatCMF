@@ -5,3 +5,4 @@ nbconvert>=7.8.0
 nltk>=3.8
 python-dotenv>=1.0.0
 setuptools>=58.0.0
+cryptography>=3.1
